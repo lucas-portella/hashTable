@@ -35,4 +35,6 @@ void* removeInicio (lista *lista);
 
 int destroiLista (lista *lista);
 
+int tamanhoLista (lista *lista);
+
 #endif

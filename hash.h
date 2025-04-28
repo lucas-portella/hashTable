@@ -21,4 +21,6 @@ void* buscaTabela (hasht* tabela, char* chave);
 
 int destroiTabela (hasht* tabela);
 
+int fator_carregamento (hasht* tabela);
+
 #endif

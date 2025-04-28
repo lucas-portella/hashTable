@@ -69,7 +69,6 @@ int insereLista (lista* lista, char* chave, void* dado) {
 
 void* buscaLista (lista *lista, char *chave) {
 	nodo *aux;
-	void *dado;
 
 	if (!lista || !chave)
 		return NULL;
@@ -79,7 +78,7 @@ void* buscaLista (lista *lista, char *chave) {
 	while (aux && strcmp(aux->chave, chave) != 0)
 		aux = aux->prox;
 	
-	return aux;
+	return aux->dado;
 }
 
 void* removeLista (lista *lista, char *chave) {
@@ -138,4 +137,21 @@ int destroiLista (lista* lista) {
 	free(lista);
 
 	return SUCESSO;
+}
+
+int tamanhoLista (lista* lista) {
+	int nodos = 0;
+	nodo* aux;
+
+	if (!lista)
+		return -1;
+
+	aux = lista->inicio;
+
+	while (aux) {
+		nodos++;
+		aux = aux->prox;
+	}
+
+	return nodos;
 }

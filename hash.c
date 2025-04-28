@@ -91,3 +91,19 @@ int destroiTabela (hasht* tabela) {
 
 	return SUCESSO;
 }
+
+int fator_carregamento (hasht* t) {
+	int nodos = 0;
+	int buckets;
+
+	if (!t)
+		return -1;
+	
+	buckets = t->buckets;
+	for (int i = 0; i < buckets; i++) {
+		nodos += tamanhoLista (t->tabela[i]);
+	}
+
+	return nodos / buckets;
+}
+
